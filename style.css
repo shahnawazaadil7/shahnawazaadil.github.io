@@ -447,6 +447,55 @@ section .title::after {
   background: crimson !important;
 }
 
+/* Link Section Styling */
+.links {
+  padding: 50px 0;
+  background: #f9f9f9; /* Light background for the links section */
+  text-align: center;
+}
+
+.links .max-width {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.links .section-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.link-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.link-item {
+  display: inline-block;
+  background-color: #333;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  max-width: 250px;
+  width: 100%; /* Ensure full width on mobile */
+  text-align: center;
+}
+
+.link-item i {
+  margin-left: 8px;
+}
+
+.link-item:hover {
+  background-color: crimson; /* Hover effect */
+}
+
 /* contact section styling */
 .contact .title::after {
   background: #111;
@@ -737,55 +786,6 @@ footer span a:hover {
     height: 250px;
     width: 250px;
   }
-}
-
-/* Link Section Styling */
-.links {
-  padding: 50px 0;
-  background: #f9f9f9; /* Light background for the links section */
-  text-align: center;
-}
-
-.links .max-width {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.links .section-title {
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-.link-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.link-item {
-  display: inline-block;
-  background-color: #333;
-  color: white;
-  padding: 15px 30px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  max-width: 250px;
-  width: 100%; /* Ensure full width on mobile */
-  text-align: center;
-}
-
-.link-item i {
-  margin-left: 8px;
-}
-
-.link-item:hover {
-  background-color: crimson; /* Hover effect */
 }
 
 /* Responsive Media Queries */
