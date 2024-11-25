@@ -378,13 +378,16 @@ section .title::after {
 }
 .skills .skills-content .right .info {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-start; /* Align items to the left on larger screens */
+  gap: 15px; /* Add space between items */
 }
+
 .skills .skills-content .right .info img {
   padding: 10px;
   margin: 5px;
+  flex: 1 1 150px; /* Allow images to grow and shrink, with a minimum width */
 }
 
 /* Project section styling */
@@ -732,6 +735,16 @@ footer span a:hover {
     font-size: 16px;
     padding: 12px 20px;
     width: 100%; /* Stack links vertically on smaller screens */
+  }
+
+  .skills .skills-content .right .info {
+    justify-content: center; /* Center the items on mobile */
+    gap: 20px; /* Increase gap for better spacing */
+  }
+
+  .skills .skills-content .right .info img {
+    flex: 1 1 200px; /* Ensure images have a minimum width but grow based on space */
+    margin: 10px auto; /* Center images with auto margins */
   }
 }
 
