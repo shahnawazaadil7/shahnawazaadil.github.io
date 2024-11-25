@@ -127,7 +127,6 @@ html {
   overflow: hidden; /* Prevents overflow issues */
 }
 
-/* Adjust styles for buttons in the home section */
 .home .home-content .buttons {
   display: flex;
   flex-wrap: wrap; /* Enable wrapping for smaller screens */
@@ -161,18 +160,18 @@ html {
 }
 
 .home .home-content a {
-  display: inline-block;
+  display: inline-flex; /* Make the button size match its content */
+  align-items: center; /* Vertically align the text and icon */
   background: crimson;
   color: #fff;
   font-size: 20px; /* Adjust font size for better scaling */
-  padding: 10px 18px; /* Adjust padding for consistency */
+  padding: 12px 24px; /* Adjust padding for consistency */
   margin-top: 10px;
   border-radius: 6px;
   border: 2px solid crimson;
   text-align: center;
   transition: all 0.3s ease;
-  flex: 1 1 calc(33.33% - 15px); /* Responsive button width */
-  max-width: 250px; /* Cap the button width */
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .home .home-content a:hover {
@@ -713,6 +712,25 @@ footer span a:hover {
   }
 }
 
+/* Media Query for Mobile View */
+@media (max-width: 768px) {
+  .home .home-content .buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px; /* Add spacing between buttons */
+  }
+
+  .home .home-content a {
+    flex: 1 1 100%; /* Buttons take full width */
+    max-width: 100%; /* Ensure no max-width restrictions */
+  }
+
+  .link-item {
+    font-size: 16px;
+    padding: 12px 20px;
+    width: 100%; /* Stack links vertically on smaller screens */
+  }
+}
+
 @media (max-width: 690px) {
   .max-width {
     padding: 0 23px;
@@ -725,35 +743,6 @@ footer span a:hover {
   }
   .home .home-content a {
     font-size: 20px;
-  }
-}
-
-/* Media Query for Mobile View */
-@media (max-width: 768px) {
-  .home .home-content .buttons {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 15px; /* Add spacing between buttons */
-  }
-
-  .home .home-content a {
-    flex: 1 1 100%; /* Buttons take full width */
-    max-width: 100%; /* Ensure no max-width restrictions */
-  }
-}
-
-@media (max-width: 480px) {
-  .home .home-content a {
-    flex: 1 1 100%; /* Buttons stack vertically */
-    max-width: none; /* Remove width cap */
-    text-align: center; /* Ensure centered text on stacking */
-  }
-
-  .home .home-content .text-2 {
-    font-size: 50px; /* Adjust heading size for smaller screens */
-  }
-
-  .home .home-content .text-3 {
-    font-size: 25px; /* Adjust subheading size */
   }
 }
 
@@ -783,18 +772,25 @@ footer span a:hover {
   }
 }
 
+@media (max-width: 480px) {
+  .home .home-content a {
+    flex: 1 1 100%; /* Buttons stack vertically */
+    max-width: none; /* Remove width cap */
+    text-align: center; /* Ensure centered text on stacking */
+  }
+
+  .home .home-content .text-2 {
+    font-size: 50px; /* Adjust heading size for smaller screens */
+  }
+
+  .home .home-content .text-3 {
+    font-size: 25px; /* Adjust subheading size */
+  }
+}
+
 @media (max-width: 380px) {
   .about .about-content .left img {
     height: 250px;
     width: 250px;
-  }
-}
-
-/* Responsive Media Queries */
-@media (max-width: 768px) {
-  .link-item {
-    font-size: 16px;
-    padding: 12px 20px;
-    width: 100%; /* Stack links vertically on smaller screens */
   }
 }
