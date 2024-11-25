@@ -131,8 +131,12 @@ html {
   display: flex;
   flex-wrap: wrap; /* Enable wrapping for smaller screens */
   gap: 15px; /* Consistent spacing between buttons */
-  margin-top: 15px; /* Space above the button group */
-  justify-content: center; /* Center-align buttons on all screens */
+  margin-top: 10px; /* Space above the button group */
+  justify-content: flex-start; /* Center-align buttons on all screens */
+}
+
+.home .home-content .buttons a i {
+  margin-left: 8px; /* Space between text and icon */
 }
 
 .home .max-width {
