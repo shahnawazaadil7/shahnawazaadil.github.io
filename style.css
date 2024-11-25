@@ -456,7 +456,7 @@ section .title::after {
 /* Links Section Styling */
 .links {
   padding: 50px 0;
-  background: #111; /* Black background for the links section */
+  background: #000; /* Black background for the links section */
   color: white; /* White text for readability */
   text-align: center;
 }
@@ -475,33 +475,43 @@ section .title::after {
 
 .link-container {
   display: flex;
-  flex-direction: column; /* Stack links vertically */
-  align-items: center; /* Center align the links */
-  gap: 20px; /* Space between each link */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center; /* Center align the items */
+  gap: 20px; /* Add space between the items */
 }
 
 .link-item {
-  display: inline-block;
-  background-color: crimson; /* Red background for the links */
-  color: white;
-  padding: 15px 30px;
-  text-decoration: none;
-  border-radius: 6px;
+  display: inline-flex; /* Flex for button to align text and icon */
+  align-items: center; /* Vertically align the text and icon */
+  background: crimson;
+  color: #fff;
   font-size: 20px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  max-width: 250px;
-  width: 100%; /* Ensure full width on mobile */
-  text-align: center;
+  padding: 12px 24px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 2px solid crimson;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Prevent text from wrapping */
+  width: 100%; /* Full width on mobile screens */
+  max-width: 300px; /* Maximum width for buttons */
+  justify-content: space-between; /* Space between text and logo */
 }
 
 .link-item i {
-  margin-left: 8px; /* Add some space between the text and the icon */
+  margin-left: 8px; /* Space between text and icon */
+}
+
+.platform-logo {
+  margin-left: 10px; /* Space between text/icon and logo */
+  width: 20px; /* Standard logo size */
+  height: auto;
+  display: inline-block;
 }
 
 .link-item:hover {
-  background-color: black; /* Change the background color on hover */
-  color: crimson; /* Text color changes to red on hover */
+  background-color: black;
+  color: white;
 }
 
 /* contact section styling */
@@ -645,6 +655,17 @@ footer span a:hover {
   }
 }
 
+@media (min-width: 1024px) {
+  .link-container {
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: space-between; /* Distribute the links evenly */
+  }
+
+  .link-item {
+    width: calc(50% - 10px); /* Two columns: each takes 50% of the container minus gap */
+  }
+}
+
 @media (max-width: 991px) {
   .max-width {
     padding: 0 50px;
@@ -731,10 +752,21 @@ footer span a:hover {
     max-width: 100%; /* Ensure no max-width restrictions */
   }
 
+  .link-container {
+    flex-direction: column; /* Stack the links vertically */
+    align-items: center; /* Center the links */
+  }
+
   .link-item {
-    font-size: 16px;
+    font-size: 18px;
     padding: 12px 20px;
-    width: 100%; /* Stack links vertically on smaller screens */
+    width: 100%; /* Buttons take full width on smaller screens */
+    text-align: center; /* Center-align text inside buttons */
+  }
+
+  .platform-logo {
+    width: 16px; /* Smaller logo size on mobile */
+    margin-left: 8px;
   }
 
   .skills .skills-content .right .info {
