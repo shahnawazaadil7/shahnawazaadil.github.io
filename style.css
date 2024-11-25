@@ -447,10 +447,11 @@ section .title::after {
   background: crimson !important;
 }
 
-/* Link Section Styling */
+/* Links Section Styling */
 .links {
   padding: 50px 0;
-  background: #f9f9f9; /* Light background for the links section */
+  background: #000; /* Black background for the links section */
+  color: white; /* White text for readability */
   text-align: center;
 }
 
@@ -463,24 +464,24 @@ section .title::after {
   font-size: 36px;
   font-weight: 600;
   margin-bottom: 30px;
-  color: #333;
+  color: white; /* White color for the title */
 }
 
 .link-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column; /* Stack links vertically */
+  align-items: center; /* Center align the links */
+  gap: 20px; /* Space between each link */
 }
 
 .link-item {
   display: inline-block;
-  background-color: #333;
+  background-color: crimson; /* Red background for the links */
   color: white;
   padding: 15px 30px;
   text-decoration: none;
-  border-radius: 5px;
-  font-size: 18px;
+  border-radius: 6px;
+  font-size: 20px;
   font-weight: 500;
   transition: background-color 0.3s ease;
   max-width: 250px;
@@ -489,11 +490,12 @@ section .title::after {
 }
 
 .link-item i {
-  margin-left: 8px;
+  margin-left: 8px; /* Add some space between the text and the icon */
 }
 
 .link-item:hover {
-  background-color: crimson; /* Hover effect */
+  background-color: black; /* Change the background color on hover */
+  color: crimson; /* Text color changes to red on hover */
 }
 
 /* contact section styling */
