@@ -459,6 +459,7 @@ section .title::after {
   background: #000; /* Black background for the links section */
   color: white; /* White text for readability */
   text-align: center;
+  width: 100%; /* Ensure the section takes up full screen width */
 }
 
 .links .max-width {
@@ -475,9 +476,10 @@ section .title::after {
 
 .link-container {
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  justify-content: center; /* Center align the items */
+  flex-direction: column; /* Always stack items vertically */
+  align-items: center; /* Center align the items */
   gap: 20px; /* Add space between the items */
+  width: 100%; /* Ensure the container takes full width */
 }
 
 .link-item {
@@ -493,20 +495,13 @@ section .title::after {
   text-decoration: none;
   transition: all 0.3s ease;
   white-space: nowrap; /* Prevent text from wrapping */
-  width: 100%; /* Full width on mobile screens */
-  max-width: 300px; /* Maximum width for buttons */
+  width: 100%; /* Full width of the screen/container */
+  max-width: 500px; /* Max width for buttons */
   justify-content: space-between; /* Space between text and logo */
 }
 
 .link-item i {
   margin-left: 8px; /* Space between text and icon */
-}
-
-.platform-logo {
-  margin-left: 10px; /* Space between text/icon and logo */
-  width: 20px; /* Standard logo size */
-  height: auto;
-  display: inline-block;
 }
 
 .link-item:hover {
