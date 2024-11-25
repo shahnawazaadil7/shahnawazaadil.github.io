@@ -655,17 +655,6 @@ footer span a:hover {
   }
 }
 
-@media (min-width: 1024px) {
-  .link-container {
-    flex-wrap: nowrap; /* Prevent wrapping */
-    justify-content: space-between; /* Distribute the links evenly */
-  }
-
-  .link-item {
-    width: calc(50% - 10px); /* Two columns: each takes 50% of the container minus gap */
-  }
-}
-
 @media (max-width: 991px) {
   .max-width {
     padding: 0 50px;
