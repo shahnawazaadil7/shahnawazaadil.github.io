@@ -390,67 +390,101 @@ section .title::after {
   flex: 1 1 150px; /* Allow images to grow and shrink, with a minimum width */
 }
 
-/* Project section styling */
-.projects .title::after {
-  content: "check my work";
-}
-.projects .carousel .card {
-  background: #222;
-  border-radius: 10px;
-  padding: 25px 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-.projects .carousel .card:hover {
-  background: rgb(48, 48, 48);
-}
-.projects .carousel .card .box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-.projects .carousel .card:hover .box {
-  transform: scale(0.99);
+/* Project Section Container */
+.project-section-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  background-color: #f9f9f9;
 }
 
-.projects .carousel .card p {
-  font-size: 16px;
-  padding-top: 10px;
-  color: #fff;
+/* Project Card */
+.project-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.projects .carousel .card img {
-  height: 250px;
-  width: 280px;
-  object-fit: fill;
-  border-radius: 10px;
-  border: 2px solid crimson;
-  transition: all 0.3s ease;
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
-.projects .carousel .card:hover img {
-  border-color: #fff;
+
+/* Project Image */
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
-.owl-dots {
-  text-align: center;
-  margin-top: 20px;
+
+/* Project Title */
+.project-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 15px 15px 10px;
+  font-weight: bold;
 }
-.owl-dot {
-  height: 13px;
-  width: 13px;
-  margin: 0 5px;
-  outline: none !important;
-  border-radius: 50%;
-  border: 2px solid crimson !important;
-  transition: all 0.3s ease;
+
+/* Project Description */
+.project-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 15px 15px;
+  line-height: 1.5;
+  text-align: justify;
 }
-.owl-dot.active {
-  width: 35px;
-  border-radius: 14px;
+
+/* Project Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px;
 }
-.owl-dot.active,
-.owl-dot:hover {
-  background: crimson !important;
+
+.tag {
+  background: #007bff;
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 50px;
+  text-transform: capitalize;
+}
+
+/* Project Links */
+.project-links {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 15px;
+  margin-top: auto;
+}
+
+.link-button {
+  background: #007bff;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.link-button:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .project-section-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
 }
 
 /* Links Section Styling */
