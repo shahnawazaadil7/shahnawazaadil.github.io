@@ -237,51 +237,14 @@ section .title::after {
   transform: translateX(-50%);
 }
 
-.skills-container {
-  display: flex;
-  gap: 20px;
-  overflow: hidden;
-  padding: 10px;
-  position: relative;
-  width: 90%;
+.skills,
+.contact {
+  background: #111;
+  color: #fff;
 }
-
-/* Skills Card Style */
-.skill-item {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #30363d;
-  border-radius: 15px;
-  background: rgba(48, 54, 61, 0.1);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: grab;
-}
-
-.skill-item img {
-  max-width: 60%;
-  max-height: 60%;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
-}
-
-/* Hover Effect (Pop-up) */
-.skill-item:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-  cursor: grabbing;
-}
-
-/* Animation during skill cycling */
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+.skills .title::before,
+.contact .title::before {
+  background: #fff;
 }
 
 /* about section styling */
@@ -433,46 +396,50 @@ section .title::after {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   padding: 40px;
-  background-color: #f9f9f9;
+  background-color: #ffffff; /* White background */
 }
 
 /* Project Card */
 .project-card {
-  background: #ffffff;
+  background: #ffffff; /* White background for the card */
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 2px solid transparent; /* Initial transparent border */
 }
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  border-color: crimson; /* Red border on hover */
 }
 
 /* Project Image */
 .project-image {
   width: 100%;
-  height: auto;
+  height: 200px; /* Fixed height for uniformity */
   object-fit: cover;
+  border-bottom: 3px solid crimson; /* Red accent under the image */
 }
 
 /* Project Title */
 .project-title {
   font-size: 1.5rem;
-  color: #333;
+  color: #333333; /* Dark title color */
   margin: 15px 15px 10px;
   font-weight: bold;
+  text-transform: uppercase; /* For a modern feel */
 }
 
 /* Project Description */
 .project-description {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 1rem;
+  color: #555555; /* Light gray text */
   margin: 0 15px 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   text-align: justify;
 }
 
@@ -485,12 +452,19 @@ section .title::after {
 }
 
 .tag {
-  background: #007bff;
-  color: #ffffff;
+  background: #f2f2f2; /* Light gray for tags */
+  color: #333333;
   font-size: 0.8rem;
   padding: 5px 10px;
   border-radius: 50px;
   text-transform: capitalize;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tag:hover {
+  background-color: crimson; /* Red accent on hover */
+  color: white; /* White text on hover */
+  transform: scale(1.1); /* Slight growth for interactivity */
 }
 
 /* Project Links */
@@ -503,17 +477,18 @@ section .title::after {
 }
 
 .link-button {
-  background: #007bff;
+  background: #333333; /* Dark gray button */
   color: #ffffff;
   text-decoration: none;
   font-size: 0.9rem;
   padding: 8px 15px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .link-button:hover {
-  background: #0056b3;
+  background: crimson; /* Red accent on hover */
+  transform: scale(1.05); /* Subtle hover animation */
 }
 
 /* Responsive Design */
@@ -521,6 +496,18 @@ section .title::after {
   .project-section-container {
     grid-template-columns: 1fr;
     padding: 20px;
+  }
+
+  .project-title {
+    font-size: 1.3rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .project-image {
+    height: 180px; /* Adjust height for smaller screens */
   }
 }
 

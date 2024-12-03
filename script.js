@@ -92,54 +92,39 @@ const currentYear = new Date().getFullYear();
 // Set the current year in the span with id "year"
 document.getElementById('year').textContent = currentYear;
 
-const container = document.querySelector('.skills-container');
-const skills = document.querySelectorAll('.skill-item');
-
-// === DRAG AND DROP FUNCTIONALITY ===
-skills.forEach(skill => {
-  skill.addEventListener('dragstart', (e) => {
-    e.dataTransfer.setData('text/plain', e.target.outerHTML);
-    skill.classList.add('dragging');
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = "scale(1.05)";
   });
 
-  skill.addEventListener('dragover', (e) => {
-    e.preventDefault();
-  });
-
-  skill.addEventListener('drop', (e) => {
-    e.preventDefault();
-    skill.classList.remove('dragging');
-    const droppedHTML = e.dataTransfer.getData('text/plain');
-    skill.insertAdjacentHTML('beforebegin', droppedHTML);
-    document.querySelector('.dragging').remove();
-    attachDragEvents(); // Re-attach events to new DOM elements
-  });
-
-  skill.addEventListener('dragend', () => {
-    skill.classList.remove('dragging');
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = "scale(1)";
   });
 });
 
-// Function to re-attach drag events (used after dropping)
-function attachDragEvents() {
-  document.querySelectorAll('.skill-item').forEach(skill => {
-    skill.addEventListener('dragstart', (e) => {
-      e.dataTransfer.setData('text/plain', e.target.outerHTML);
-      skill.classList.add('dragging');
-    });
-
-    skill.addEventListener('dragend', () => {
-      skill.classList.remove('dragging');
-    });
+// Add dynamic hover effect to links and tags
+document.querySelectorAll('.link-button').forEach(button => {
+  button.addEventListener('mouseenter', () => {
+    button.style.transform = "scale(1.05)";
+    button.style.backgroundColor = "crimson";
   });
-}
 
-// === CYCLE THROUGH SKILLS ===
-let index = 0;
-setInterval(() => {
-  container.scrollTo({
-    left: (index * 120) % (container.scrollWidth),
-    behavior: 'smooth'
+  button.addEventListener('mouseleave', () => {
+    button.style.transform = "scale(1)";
+    button.style.backgroundColor = "#333333"; // original background
   });
-  index++;
-}, 3000);
+});
+
+document.querySelectorAll('.tag').forEach(tag => {
+  tag.addEventListener('mouseenter', () => {
+    tag.style.transform = "scale(1.1)";
+    tag.style.backgroundColor = "crimson";
+    tag.style.color = "#fff";
+  });
+
+  tag.addEventListener('mouseleave', () => {
+    tag.style.transform = "scale(1)";
+    tag.style.backgroundColor = "#f2f2f2";
+    tag.style.color = "#333333"; // original color
+  });
+});
