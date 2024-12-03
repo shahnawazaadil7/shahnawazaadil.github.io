@@ -91,3 +91,55 @@ $(document).ready(function () {
 const currentYear = new Date().getFullYear();
 // Set the current year in the span with id "year"
 document.getElementById('year').textContent = currentYear;
+
+const container = document.querySelector('.skills-container');
+const skills = document.querySelectorAll('.skill-item');
+
+// === DRAG AND DROP FUNCTIONALITY ===
+skills.forEach(skill => {
+  skill.addEventListener('dragstart', (e) => {
+    e.dataTransfer.setData('text/plain', e.target.outerHTML);
+    skill.classList.add('dragging');
+  });
+
+  skill.addEventListener('dragover', (e) => {
+    e.preventDefault();
+  });
+
+  skill.addEventListener('drop', (e) => {
+    e.preventDefault();
+    skill.classList.remove('dragging');
+    const droppedHTML = e.dataTransfer.getData('text/plain');
+    skill.insertAdjacentHTML('beforebegin', droppedHTML);
+    document.querySelector('.dragging').remove();
+    attachDragEvents(); // Re-attach events to new DOM elements
+  });
+
+  skill.addEventListener('dragend', () => {
+    skill.classList.remove('dragging');
+  });
+});
+
+// Function to re-attach drag events (used after dropping)
+function attachDragEvents() {
+  document.querySelectorAll('.skill-item').forEach(skill => {
+    skill.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('text/plain', e.target.outerHTML);
+      skill.classList.add('dragging');
+    });
+
+    skill.addEventListener('dragend', () => {
+      skill.classList.remove('dragging');
+    });
+  });
+}
+
+// === CYCLE THROUGH SKILLS ===
+let index = 0;
+setInterval(() => {
+  container.scrollTo({
+    left: (index * 120) % (container.scrollWidth),
+    behavior: 'smooth'
+  });
+  index++;
+}, 3000);
